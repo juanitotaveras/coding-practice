@@ -11,11 +11,22 @@ import org.junit.Test
 class SolutionTest {
     val solList = listOf(InPlace())
     @Test fun shouldUrlify() {
-        assert("Mr John Smith", 13, "Mr%20John%20Smith", solList)
+        assert("Mr John Smith    ", 13, "Mr%20John%20Smith")
     }
-    private fun assert(str: String, len: Int, expected: String, solList: List<Solution>) {
-        for (sol in solList)
+
+    @Test fun shouldUrlify2() {
+        assert("   ", 1, "%20")
+    }
+
+    @Test fun shouldNotUrlifyBlank() {
+        assert("", 0, "")
+    }
+    private fun assert(str: String, len: Int, expected: String) {
+        for (sol in solList) {
+            val output = sol.urlify(str, len)
+//            Assert.assertEquals(output.length, str.length)
             Assert.assertEquals(expected, sol.urlify(str, len))
+        }
     }
 
 }

@@ -5,9 +5,10 @@ package Question1_3
  */
 class InPlace : Solution {
     override fun urlify(str: String, len: Int): String {
-        val arr = CharArray(len + 30)
+        // first need to count spaces
+        val arr = CharArray(str.length)
         var idx = 0
-        for (i in 0 until str.length) {
+        for (i in 0 until len) {
             if (str[i] != ' ') {
                 arr[idx++] = str[i]
             } else {
@@ -16,6 +17,6 @@ class InPlace : Solution {
                 arr[idx++] = '0'
             }
         }
-        return String(arr).substring(0, idx)
+        return String(arr)
     }
 }
