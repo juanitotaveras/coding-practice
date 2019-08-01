@@ -5,6 +5,7 @@ package Question1_8
  */
 class Simple : Solution {
     override fun zeroMatrix(matrix: List<IntArray>): List<IntArray> {
+
         return matrix
     }
 }
